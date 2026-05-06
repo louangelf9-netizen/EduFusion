@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: blob:; media-src 'self'; connect-src 'self';">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>EDUFUSION - Gamified Learning</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="logo/logo.png" type="image/png">
+  <link rel="apple-touch-icon" href="logo/logo.png">
+  <meta name="theme-color" content="#667eea">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="EduFusion">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="background-themes.css">
+  <link rel="stylesheet" href="enhancements.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- Login Overlay -->
+  <div id="login-overlay">
+    <div class="login-container">
+      <div class="login-logo-wrap">
+        <div class="login-logo-glow"></div>
+        <div class="login-logo-icon">
+          <video src="logo/edu.mp4" class="logo-video" autoplay muted playsinline></video>
+        </div>
+      </div>
+      <h1>EDUFUSION</h1>
+      <p class="login-subtitle">Gamified Learning</p>
+
+      <!-- Step 1: Name -->
+      <div id="login-step-name">
+        <form class="login-form" onsubmit="event.preventDefault(); loginStepName();">
+          <input type="text" id="player-name-input" placeholder="Enter your name..." autocomplete="off" maxlength="30">
+          <button type="submit">Continue →</button>
+          <p class="login-hint">Play and learn with fun! 🎮</p>
+        </form>
+      </div>
+
+      <!-- Step 2: PIN -->
+      <div id="login-step-pin" class="hidden">
+        <div class="pin-header">
+          <button class="pin-back-btn" onclick="loginBackToName()" aria-label="Back">← Back</button>
+          <p id="pin-greeting" class="pin-greeting"></p>
+          <p id="pin-label" class="pin-label"></p>
+        </div>
+        <div class="pin-dots" id="pin-dots">
+          <span class="pin-dot" id="pd0"></span>
+          <span class="pin-dot" id="pd1"></span>
+          <span class="pin-dot" id="pd2"></span>
+          <span class="pin-dot" id="pd3"></span>
+        </div>
+        <p id="pin-error" class="pin-error hidden"></p>
+        <div class="pin-pad">
+          <button class="pin-key" onclick="pinKey('1')">1</button>
+          <button class="pin-key" onclick="pinKey('2')">2</button>
+          <button class="pin-key" onclick="pinKey('3')">3</button>
+          <button class="pin-key" onclick="pinKey('4')">4</button>
+          <button class="pin-key" onclick="pinKey('5')">5</button>
+          <button class="pin-key" onclick="pinKey('6')">6</button>
+          <button class="pin-key" onclick="pinKey('7')">7</button>
+          <button class="pin-key" onclick="pinKey('8')">8</button>
+          <button class="pin-key" onclick="pinKey('9')">9</button>
+          <button class="pin-key pin-key-empty" disabled></button>
+          <button class="pin-key" onclick="pinKey('0')">0</button>
+          <button class="pin-key pin-key-del" onclick="pinDelete()" aria-label="Delete">⌫</button>
+        </div>
+        <button id="pin-forgot-btn" class="pin-forgot hidden" onclick="pinForgot()">Forgot PIN?</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Main Content -->
+  <div id="main-content" class="hidden">
+    <header>
+      <div class="header-top">
+        <div class="logo-title">
+          <div class="logo-container">
+            <div class="logo-glow"></div>
+            <div class="logo-icon">
+              <video src="logo/edu.mp4" class="logo-video" autoplay muted playsinline></video>
+            </div>
+          </div>
+          <div class="title-text">
+            <h1>EDUFUSION</h1>
+            <div class="subtitle">Gamified Learning</div>
+          </div>
+        </div>
+        <button class="menu-btn" onclick="openMenu()" aria-label="Open menu">
+          <span class="menu-btn-bar"></span>
+          <span class="menu-btn-bar"></span>
+          <span class="menu-btn-bar"></span>
+        </button>
+      </div>
+      <p id="greeting" class="greeting hidden">Hello, Player! 👋 Choose a mode to start!</p>
+    </header>
+
+    <!-- Game Modes -->
+<!-- Inside the <main id="main-content" class="hidden"> section -->
+<section id="modes" role="main">
+    <!-- History & Guess Pair -->
+    <div class="mode-pair">
+        <div class="pair-label">📚 Knowledge</div>
+        <div class="pair-cards">
+            <div class="mode-card" onclick="showMechanics('history')">
+                <div class="mode-logo history-logo">
+                    <!-- Updated Image -->
+                    <img src="logo/historylogo.png" alt="History Unlocked" class="mode-img">
+                </div>
+                <h2>History Unlocked</h2>
+                <p>Read the question and pick the correct answer from 4 choices. Use the 💡 hint if you're stuck!</p>
+                <div class="mode-stats">
+                    <span class="stat">⭐ <span id="history-total-stars">0</span>/30</span>
+                    <span class="stat">🔓 <span id="history-unlocked">1</span>/10</span>
+                </div>
+            </div>
+            <div class="mode-card" onclick="showMechanics('guess')">
+                <div class="mode-logo guess-logo">
+                    <!-- Updated Image -->
+                    <img src="logo/guessimg.png" alt="Guess the Image" class="mode-img">
+                </div>
+                <h2>Guess the Image</h2>
+                <p>Look at the photo and the clue, then identify the correct answer from 4 choices.</p>
+                <div class="mode-stats">
+                    <span class="stat">⭐ <span id="guess-total-stars">0</span>/30</span>
+                    <span class="stat">🔓 <span id="guess-unlocked">1</span>/10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Spell & Missing Pair -->
+    <div class="mode-pair">
+        <div class="pair-label">✏️ Language</div>
+        <div class="pair-cards">
+            <div class="mode-card" onclick="showMechanics('spell')">
+                <div class="mode-logo spell-logo">
+                    <!-- Updated Image -->
+                    <img src="logo/spell it.png" alt="Spell It Right" class="mode-img">
+                </div>
+                <h2>Spell It Right</h2>
+                <p>Tap 🔊 to hear the word spoken aloud, then choose the correct spelling from 4 options.</p>
+                <div class="mode-stats">
+                    <span class="stat">⭐ <span id="spell-total-stars">0</span>/30</span>
+                    <span class="stat">🔓 <span id="spell-unlocked">1</span>/10</span>
+                </div>
+            </div>
+            <div class="mode-card" onclick="showMechanics('missing')">
+                <div class="mode-logo missing-logo">
+                    <!-- Updated Image -->
+                    <img src="logo/missing.png" alt="Missing Letters" class="mode-img">
+                </div>
+                <h2>Missing Letters</h2>
+                <p>Look at the image clue and the word pattern with blanks, then choose the complete word.</p>
+                <div class="mode-stats">
+                    <span class="stat">⭐ <span id="missing-total-stars">0</span>/30</span>
+                    <span class="stat">🔓 <span id="missing-unlocked">1</span>/10</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Levels Area -->
+    <section id="levels-area" class="hidden">
+      <div class="levels-header">
+        <button class="back-btn" onclick="goBackToModes()" aria-label="Go back">⬅</button>
+        <h2 id="level-title">Select Level</h2>
+        <div class="mode-progress">
+          <div class="progress-ring">
+            <svg viewBox="0 0 36 36">
+              <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+              <path id="progress-circle" class="circle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
+            </svg>
+            <div class="percentage" id="mode-percentage">0%</div>
+          </div>
+        </div>
+      </div>
+      <div class="levels-container">
+        <div id="levels-grid"></div>
+      </div>
+      <div class="levels-legend">
+        <div class="legend-item"><div class="dot current"></div> Current</div>
+        <div class="legend-item"><div class="dot unlocked"></div> Unlocked</div>
+        <div class="legend-item"><div class="dot locked"></div> Locked</div>
+      </div>
+    </section>
+
+    <!-- Game Area -->
+    <section id="game-area" class="hidden">
+      <div class="game-container">
+        <div class="game-top-bar">
+          <button class="icon-btn" onclick="goBackToLevels()" aria-label="Go back">⬅</button>
+          <div class="level-info">
+            <span class="level-badge">Level <span id="current-level-num">1</span></span>
+          </div>
+          <div class="game-stats">
+            <div class="stat-item timer">⏱️ <span id="timer">30</span></div>
+            <div class="stat-item streak">🔥 <span id="current-streak">0</span></div>
+          </div>
+        </div>
+        <div class="question-progress">
+          <div class="progress-track">
+            <div id="question-progress-bar" class="progress-fill" style="width: 0%"></div>
+          </div>
+          <div class="progress-dots" id="progress-dots"></div>
+        </div>
+        <div id="game-content"></div>
+      </div>
+    </section>
+
+    <!-- Leaderboard -->
+    <section id="leaderboard-section" class="hidden">
+      <div class="section-header">
+        <button class="icon-btn" onclick="goBackToModes()" aria-label="Go back">⬅</button>
+        <h2>🏆 Leaderboard</h2>
+      </div>
+      <div id="leaderboard-content"></div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact-section" class="hidden">
+      <div class="section-header">
+        <button class="icon-btn" onclick="goBackToModes()" aria-label="Go back">⬅</button>
+        <h2>📧 Contact Us</h2>
+      </div>
+      <div class="contact-card">
+        <div class="contact-logo">📚</div>
+        <h3>EDUFUSION</h3>
+        <p class="contact-subtitle">Gamified Learning App</p>
+        <div class="contact-info">
+          <div class="contact-item"><div class="contact-icon">👨‍💻</div><div><strong>Developed by</strong><p>L.A.F.G & R.M.S</p></div></div>
+          <div class="contact-item"><div class="contact-icon">📧</div><div><strong>Email</strong><p>edufusion.app@gmail.com</p></div></div>
+          <div class="contact-item"><div class="contact-icon">🌐</div><div><strong>Website</strong><p>www.edufusion.app</p></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Daily Challenge -->
+    <section id="daily-challenge-section" class="hidden">
+      <div class="section-header">
+        <button class="icon-btn" onclick="goBackToModes()" aria-label="Go back">⬅</button>
+        <h2>🌟 Daily Challenge</h2>
+      </div>
+      <div id="daily-challenge-content"></div>
+    </section>
+
+    <!-- Theme Selector -->
+    <section id="theme-selector-section" class="hidden">
+      <div class="section-header">
+        <button class="icon-btn" onclick="goBackToModes()" aria-label="Go back">⬅</button>
+        <h2>🎨 Background Themes</h2>
+      </div>
+      <div id="theme-selector-content" class="theme-grid"></div>
+    </section>
+
+    <!-- Profile -->
+    <section id="profile-section" class="hidden">
+      <div class="section-header">
+        <button class="icon-btn" onclick="goBackToModes()" aria-label="Go back">⬅</button>
+        <h2>👤 Profile</h2>
+      </div>
+      <div id="profile-content"></div>
+    </section>
+  </div>
+
+  <!-- Side Menu -->
+  <div id="menu-overlay" class="hidden" onclick="closeMenu()"></div>
+  <nav id="side-menu" class="hidden">
+    <div class="menu-header">
+      <div class="menu-avatar" id="menu-avatar">A</div>
+      <h3 id="menu-player-name">Player</h3>
+      <p class="menu-subtitle">Edugamer 🎓</p>
+    </div>
+    <div class="menu-volume-row">
+      <button class="menu-vol-mute" id="volume-mute-btn" onclick="toggleMute()" aria-label="Mute">🔊</button>
+      <div class="menu-vol-slider">
+        <input type="range" id="volume-slider" class="volume-slider" min="0" max="100" value="70" oninput="setVolume(this.value)" aria-label="Music volume">
+      </div>
+      <span class="menu-vol-value" id="volume-value">70%</span>
+    </div>
+    <div class="menu-items">
+      <button onclick="showDailyChallenge()">🌟 Daily Challenge</button>
+      <button onclick="showLeaderboard()">🏆 Leaderboard</button>
+      <button onclick="showProfile()">👤 Profile</button>
+      <button onclick="showThemeSelector()">🎨 Background Theme</button>
+      <button onclick="showContactUs()">📧 Contact Us</button>
+      <button onclick="toggleSound()" id="sound-menu-btn">🔊 Sound</button>
+      <button onclick="shareApp()">📤 Share</button>
+      <button onclick="resetProgressConfirm()">🔄 Reset Progress</button>
+      <button onclick="logout()">🚪 Log Out</button>
+    </div>
+    <div class="menu-footer">
+      <p>© 2026 EDUFUSION</p>
+      <p class="menu-dev">by L.A.F.G & R.M.S</p>
+    </div>
+  </nav>
+
+  <!-- Confirm Dialog -->
+  <div id="confirm-dialog" class="hidden">
+    <div class="confirm-box">
+      <div class="confirm-emoji">⚠️</div>
+      <h3 id="confirm-title">Are you sure?</h3>
+      <p id="confirm-message">This action cannot be undone.</p>
+      <div class="confirm-buttons">
+        <button class="btn-secondary" onclick="closeConfirm()">Cancel</button>
+        <button class="btn-danger" id="confirm-action-btn">Yes, I'm Sure</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Notification -->
+  <div id="notification" class="hidden" aria-live="polite"><span id="notification-text"></span></div>
+
+  <!-- Audio -->
+  <audio id="bg-music" src="music/bg-music.mp3" loop></audio>
+
+  <!-- Results Modal -->
+  <div id="results-modal" class="results-modal-overlay hidden">
+    <div class="results-modal-box">
+      <div id="modal-emoji" class="modal-emoji">🎉</div>
+      <h2 id="modal-title">Level Complete!</h2>
+      <div id="modal-stars" class="modal-stars">⭐⭐⭐</div>
+      <div class="modal-score-grid">
+        <div class="modal-score-row"><span>Correct</span><span id="modal-correct">0/5</span></div>
+        <div class="modal-score-row"><span>Accuracy</span><span id="modal-accuracy">0%</span></div>
+        <div class="modal-score-row"><span>Time Bonus</span><span id="modal-time-bonus">+0</span></div>
+        <div class="modal-score-row total"><span>Total Score</span><span id="modal-total-score">0</span></div>
+      </div>
+      <div id="modal-message" class="modal-message"></div>
+      <div class="modal-buttons">
+        <button class="btn-retry" onclick="retryLevel()">↻ Try Again</button>
+        <button class="btn-secondary" onclick="goBackToModes()">🏠 Dashboard</button>
+        <button id="modal-next-btn" class="btn-primary" onclick="nextLevel()">Next Level →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Onboarding Modal (Task 14) -->
+  <div id="onboarding-modal" class="onboarding-overlay hidden">
+    <div class="onboarding-box">
+      <div class="onboarding-slides">
+        <div class="onboarding-slide active" data-slide="0">
+          <div class="onboarding-icon">🎓</div>
+          <h2>Welcome to EduFusion!</h2>
+          <p>Learn Philippine history and Filipino language through fun, gamified challenges.</p>
+        </div>
+        <div class="onboarding-slide" data-slide="1">
+          <div class="onboarding-icon">⭐</div>
+          <h2>Earn Stars &amp; Level Up</h2>
+          <p>Answer 5 questions per level. Score 60% or higher to pass and unlock the next level. Get 3 stars for a perfect score!</p>
+        </div>
+        <div class="onboarding-slide" data-slide="2">
+          <div class="onboarding-icon">🏆</div>
+          <h2>4 Game Modes</h2>
+          <p>History questions, Guess the Image, Spell It Right, and Missing Letters. Each mode has 10 levels to conquer!</p>
+        </div>
+        <div class="onboarding-slide" data-slide="3">
+          <div class="onboarding-icon">🚀</div>
+          <h2>Ready to Play?</h2>
+          <p>Choose any mode from the dashboard to start your learning adventure!</p>
+        </div>
+      </div>
+      <div class="onboarding-dots" id="onboarding-dots"></div>
+      <div class="onboarding-buttons">
+        <button class="btn-secondary" id="onboarding-skip" onclick="closeOnboarding()">Skip</button>
+        <button class="btn-primary" id="onboarding-next" onclick="nextOnboardingSlide()">Next →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Play Modal -->
+  <div id="mechanics-modal" class="mechanics-overlay hidden">
+    <div class="mechanics-box">
+      <button class="mechanics-close" onclick="closeMechanics()">✕</button>
+      <div id="mechanics-content"></div>
+    </div>
+  </div>
+
+  <!-- Floating Music Player removed — volume control is in the side menu -->
+
+  <!-- PWA Install Banner -->
+  <div id="pwa-install-banner" class="pwa-banner hidden" role="banner" aria-label="Install app">
+    <div class="pwa-banner-icon">📲</div>
+    <div class="pwa-banner-text">
+      <strong>Install EduFusion</strong>
+      <span>Play offline, anytime!</span>
+    </div>
+    <button class="pwa-banner-install" id="pwa-install-btn">Install</button>
+    <button class="pwa-banner-dismiss" id="pwa-dismiss-btn" aria-label="Dismiss">✕</button>
+  </div>
+
+  <!-- Update Toast -->
+  <div id="pwa-update-toast" class="pwa-update-toast hidden" role="status">
+    <span>🔄 Update available!</span>
+    <button onclick="applySwUpdate()">Refresh</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

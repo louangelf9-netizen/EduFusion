@@ -1,0 +1,43 @@
+{
+  "name": "EDUFUSION - Gamified Learning",
+  "short_name": "EduFusion",
+  "description": "Learn Philippine history and Filipino language through fun games",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#0f0f2e",
+  "theme_color": "#667eea",
+  "icons": [
+    {
+      "src": "logo/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "logo/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "logo/guessimg.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Guess the Image game mode"
+    }
+  ],
+  "categories": ["education", "games"],
+  "lang": "en-PH",
+  "dir": "ltr"
+}
