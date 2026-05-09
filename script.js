@@ -1879,9 +1879,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   window.addEventListener('beforeinstallprompt', e => {
     e.preventDefault();
     _deferredInstallPrompt = e;
-    // Only show if user hasn't dismissed it before
+    // Show install banner immediately (no delay) so prompt() is called in the same user gesture chain
     if (!localStorage.getItem('edufusionPwaDismissed')) {
-      setTimeout(() => showPwaBanner(), 3000); // show after 3s so it doesn't interrupt login
+      showPwaBanner();
     }
   });
 

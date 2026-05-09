@@ -2,7 +2,7 @@
 // EDUFUSION Service Worker
 // ============================
 
-const CACHE_VERSION = 'edufusion-v8';
+const CACHE_VERSION = 'edufusion-v9';
 
 const CORE_ASSETS = [
   './',
