@@ -908,30 +908,211 @@ const gameData = {
     { questions: [ { type: "guess", answer: "Lechon", hint: "Popular food during fiestas", image: "images/guess/lechon.jpg", options:["Lechon", "Adobo", "Sinigang", "Kare-Kare"] }, { type: "guess", answer: "Adobo", hint: "Unofficial national dish of the Philippines", image: "images/guess/adobo.jpg", options:["Adobo", "Sinigang", "Lechon", "Kare-Kare"] }, { type: "guess", answer: "Sinigang", hint: "Sour soup dish", image: "images/guess/sinigang.jpg", options:["Sinigang", "Adobo", "Nilaga", "Tinola"] }, { type: "guess", answer: "Balut", hint: "Boiled duck embryo", image: "images/guess/balut.jpg", options:["Balut", "Penoy", "Kwek-Kwek", "Tokneneng"] }, { type: "guess", answer: "Halo-Halo", hint: "Popular summer dessert with mixed ingredients", image: "images/guess/halo-halo.jpg", options:["Halo-Halo", "Mais Con Yelo", "Sago't Gulaman", "Ube Halaya"] } ] },
     { questions: [ { type: "guess", answer: "Bayanihan", hint: "Traditional Filipino spirit of communal unity", image: "images/guess/bayanihan.jpg", options:["Bayanihan", "Fiesta", "Santacruzan", "Christmas"] }, { type: "guess", answer: "Santacruzan", hint: "Religious parade held in May", image: "images/guess/santacruzan.jpg", options:["Santacruzan", "Sinulog", "Flores de Mayo", "Pahiyas"] }, { type: "guess", answer: "Antonio Luna", hint: "General assassinated in Cabanatuan", image: "images/guess/antonio-luna.jpg", options:["Antonio Luna", "Emilio Aguinaldo", "Gregorio del Pilar", "Miguel Malvar"] }, { type: "guess", answer: "Emilio Jacinto", hint: "Brain of the Katipunan", image: "images/guess/emilio-jacinto.jpg", options:["Emilio Jacinto", "Andres Bonifacio", "Apolinario Mabini", "Jose Rizal"] }, { type: "guess", answer: "Gomburza", hint: "Three martyred priests of 1872", image: "images/guess/gomburza.jpg", options:["Gomburza", "Rizal", "Bonifacio", "Mabini"] } ] }
   ]},
-  spell: { levels: [
-    { questions: [ { type: "spell", word: "book", options:["koob", "okbo", "boko", "book"] }, { type: "spell", word: "bahay", options:["bahay", "bahey", "bahae", "bahi"] }, { type: "spell", word: "guro", options:["guro", "guroh", "goro", "gurro"] }, { type: "spell", word: "mesa", options:["mesa", "misa", "masa", "meza"] }, { type: "spell", word: "pusa", options:["pusa", "pasa", "pusah", "psua"] } ] },
-    { questions: [ { type: "spell", word: "eskwela", options:["eskwela", "eskuela", "eskwila", "eskuyla"] }, { type: "spell", word: "kaibigan", options:["kaibigan", "kaybigan", "kaibegan", "keibigan"] }, { type: "spell", word: "dagat", options:["dagat", "dagad", "daat", "daghat"] }, { type: "spell", word: "buwan", options:["buwan", "buan", "bwan", "buhwan"] }, { type: "spell", word: "araw", options:["araw", "ahraw", "alaw", "arawh"] } ] },
-    { questions: [ { type: "spell", word: "mag-aaral", options:["mag-aaral", "magaaral", "mag-aral", "maga-aral"] }, { type: "spell", word: "punong-guro", options:["punong-guro", "punongguro", "punong guro", "puno-guro"] }, { type: "spell", word: "kasaysayan", options:["kasaysayan", "kasay-sayan", "kassaysayan", "kasaysyan"] }, { type: "spell", word: "pagkakaisa", options:["pagkakaisa", "pagkaka-isa", "pagakaisa", "pagkkaisa"] }, { type: "spell", word: "katangian", options:["katangian", "katangiyan", "katangyan", "katanian"] } ] },
-    { questions: [ { type: "spell", word: "paaralan", options:["paaralan", "paralan", "paarlan", "parhalan"] }, { type: "spell", word: "magulang", options:["magulang", "magolang", "magulag", "maghulang"] }, { type: "spell", word: "kaalaman", options:["kaalaman", "kaalamman", "kalaman", "kaalman"] }, { type: "spell", word: "pinagpala", options:["pinagpala", "pinag-pala", "pinagpahla", "pinagpalla"] }, { type: "spell", word: "pagbabago", options:["pagbabago", "pagbago", "pagbabagu", "pagbaghago"] } ] },
-    { questions: [ { type: "spell", word: "pamahalaan", options:["pamahalaan", "pamahalaann", "pamhalahan", "pamhalaan"] }, { type: "spell", word: "pagmamahal", options:["pagmamahal", "pagmahal", "pagamahal", "pagmamhal"] }, { type: "spell", word: "kasalanan", options:["kasalanan", "kassalanan", "kasalanann", "kasalnan"] }, { type: "spell", word: "nakakatuwa", options:["nakakatuwa", "nakatuwa", "nakakatwa", "nakakatuha"] }, { type: "spell", word: "pinakamahalaga", options:["pinakamahalaga", "pinakamhalaga", "pinaka-mahalaga", "pinakmahalaga"] } ] },
-    { questions: [ { type: "spell", word: "kalayaan", options:["kalayaan", "kalaya-an", "kalayahan", "kalaya"] }, { type: "spell", word: "kapayapaan", options:["kapayapaan", "kapaypan", "kapayapahan", "kppayapaan"] }, { type: "spell", word: "tagumpay", options:["tagumpay", "tagumay", "tagumpya", "tagunpay"] }, { type: "spell", word: "pangangalaga", options:["pangangalaga", "pangalaga", "panganngalaga", "panangalaga"] }, { type: "spell", word: "pagpapatuloy", options:["pagpapatuloy", "pagpatuloy", "pagppatuloy", "pagpapatloy"] } ] },
-    { questions: [ { type: "spell", word: "pananagutan", options:["pananagutan", "panagtutan", "pananagtan", "pana-nagutan"] }, { type: "spell", word: "katiyakan", options:["katiyakan", "katipakan", "katiykan", "katuyakan"] }, { type: "spell", word: "katapangan", options:["katapangan", "katapngan", "katapagan", "katapahan"] }, { type: "spell", word: "pagkilos", options:["pagkilos", "pagkilis", "paghilos", "pakilos"] }, { type: "spell", word: "pagdarasal", options:["pagdarasal", "pagdrasal", "padgarasal", "pagdarasl"] } ] },
-    { questions: [ { type: "spell", word: "kagalakan", options:["kagalakan", "kaglakan", "kaghalakan", "kagaalakan"] }, { type: "spell", word: "pagtanggap", options:["pagtanggap", "pagtang-gap", "pagtangap", "pagtanghap"] }, { type: "spell", word: "kaunawaan", options:["kaunawaan", "kaunahan", "kaunawa-an", "kaunawan"] }, { type: "spell", word: "paghihirap", options:["paghihirap", "paghirap", "paghirrap", "paghihira"] }, { type: "spell", word: "pangarap", options:["pangarap", "pagnarap", "pangharap", "panarap"] } ] },
-    { questions: [ { type: "spell", word: "kapangyarihan", options:["kapangyarihan", "kapangyarihhan", "kapangarihan", "kapangyariham"] }, { type: "spell", word: "pagmamalasakit", options:["pagmamalasakit", "pagmalasakit", "pagmamalsakit", "pagmamalasakot"] }, { type: "spell", word: "katapatan", options:["katapatan", "kataptaan", "katapathan", "kataputan"] }, { type: "spell", word: "pagkukusa", options:["pagkukusa", "pagkusa", "pagkukuksa", "pagukusa"] }, { type: "spell", word: "bayanihan", options:["bayanihan", "bayanhian", "bayanihen", "bayanohan"] } ] },
-    { questions: [ { type: "spell", word: "pag-ibig", options:["pag-ibig", "pagibig", "pag-ibog", "pag-ebig"] }, { type: "spell", word: "pagkakaibigan", options:["pagkakaibigan", "pagkaibigan", "pagkaka-ibigan", "pagkkaibigan"] }, { type: "spell", word: "pagtatanggol", options:["pagtatanggol", "pagtanggol", "pagtatangol", "pagtatanggul"] }, { type: "spell", word: "pakikipagkapwa", options:["pakikipagkapwa", "pakikipagkapua", "pakikipagakapwa", "pakikipagkapwe"] }, { type: "spell", word: "pagmamahal", options:["pagmamahal", "pagmahal", "pagamahal", "pagmamhal"] } ] }
-  ]},
+  spell: { 
+  levels: [
+    { 
+      questions: [ 
+        { type: "spell", word: "book", options:["koob", "okbo", "boko", "book"] }, 
+        { type: "spell", word: "house", options:["house", "houes", "hause", "hosue"] }, 
+        { type: "spell", word: "teacher", options:["teacher", "techer", "teachar", "teacehr"] }, 
+        { type: "spell", word: "table", options:["table", "tabel", "tablle", "tabl"] }, 
+        { type: "spell", word: "cat", options:["cat", "cta", "kat", "caat"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "school", options:["school", "scholl", "scool", "shcool"] }, 
+        { type: "spell", word: "friend", options:["friend", "freind", "frend", "frind"] }, 
+        { type: "spell", word: "ocean", options:["ocean", "ocian", "osean", "oecen"] }, 
+        { type: "spell", word: "moon", options:["moon", "mon", "mooon", "moun"] }, 
+        { type: "spell", word: "sun", options:["sun", "son", "sunn", "suun"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "student", options:["student", "studant", "sttudent", "studnet"] }, 
+        { type: "spell", word: "principal", options:["principal", "prinsipal", "principel", "pricipal"] }, 
+        { type: "spell", word: "history", options:["history", "histroy", "hstory", "hisstory"] }, 
+        { type: "spell", word: "unity", options:["unity", "uniti", "uunity", "unitty"] }, 
+        { type: "spell", word: "character", options:["character", "charcter", "charactar", "caracter"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "classroom", options:["classroom", "clasroom", "classrom", "cllassroom"] }, 
+        { type: "spell", word: "parent", options:["parent", "parrent", "pareent", "parant"] }, 
+        { type: "spell", word: "knowledge", options:["knowledge", "knowlege", "knowladge", "knowldge"] }, 
+        { type: "spell", word: "blessed", options:["blessed", "blesed", "blessid", "blessedd"] }, 
+        { type: "spell", word: "change", options:["change", "changge", "chnage", "chainge"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "government", options:["government", "goverment", "govarnment", "governmant"] }, 
+        { type: "spell", word: "love", options:["love", "luv", "loove", "lvoe"] }, 
+        { type: "spell", word: "mistake", options:["mistake", "mistakke", "mistaek", "mistak"] }, 
+        { type: "spell", word: "funny", options:["funny", "funi", "funnny", "funey"] }, 
+        { type: "spell", word: "important", options:["important", "importent", "impoortant", "impotant"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "freedom", options:["freedom", "freddom", "fredom", "freeedom"] }, 
+        { type: "spell", word: "peace", options:["peace", "peece", "pease", "peac"] }, 
+        { type: "spell", word: "victory", options:["victory", "victori", "victtory", "viktory"] }, 
+        { type: "spell", word: "protection", options:["protection", "protecton", "protction", "prottection"] }, 
+        { type: "spell", word: "continue", options:["continue", "contnue", "continoue", "continew"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "responsibility", options:["responsibility", "responsiblity", "responsibilityy", "responcibility"] }, 
+        { type: "spell", word: "certainty", options:["certainty", "certanty", "certainity", "sertainty"] }, 
+        { type: "spell", word: "courage", options:["courage", "courrage", "corage", "couraage"] }, 
+        { type: "spell", word: "action", options:["action", "acton", "acction", "aktion"] }, 
+        { type: "spell", word: "prayer", options:["prayer", "prayar", "pryer", "prayerr"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "joy", options:["joy", "joi", "jooy", "joyy"] }, 
+        { type: "spell", word: "acceptance", options:["acceptance", "acceptence", "accepptance", "acceptanse"] }, 
+        { type: "spell", word: "understanding", options:["understanding", "understending", "understaning", "undrstanding"] }, 
+        { type: "spell", word: "suffering", options:["suffering", "sufering", "sufferring", "sufferng"] }, 
+        { type: "spell", word: "dream", options:["dream", "dreem", "drem", "draem"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "power", options:["power", "powar", "poower", "pwer"] }, 
+        { type: "spell", word: "compassion", options:["compassion", "compasion", "compasssion", "compashon"] }, 
+        { type: "spell", word: "honesty", options:["honesty", "honisty", "honnesty", "onesty"] }, 
+        { type: "spell", word: "initiative", options:["initiative", "initative", "iniitiative", "initiativ"] }, 
+        { type: "spell", word: "cooperation", options:["cooperation", "coorperation", "cooperationn", "co-operashon"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "spell", word: "affection", options:["affection", "afection", "affektion", "affectionn"] }, 
+        { type: "spell", word: "friendship", options:["friendship", "freindship", "friendsip", "frendship"] }, 
+        { type: "spell", word: "defense", options:["defense", "defence", "deffense", "defens"] }, 
+        { type: "spell", word: "community", options:["community", "commmunity", "comunity", "communty"] }, 
+        { type: "spell", word: "kindness", options:["kindness", "kindnes", "kyndness", "kindniss"] } 
+      ] 
+    }
+  ]
+},
   missing: { levels: [
-    { questions: [ { type: "missing", word: "aklat", display: " KL_T ", image: "images/missing/aklat.jpg", options:["aklat", "aklad", "aklet", "iklat"] }, { type: "missing", word: "bahay", display: "B_H_Y", image: "images/missing/bahay.jpg", options:["bahay", "bahey", "buhay", "bohay"] }, { type: "missing", word: "guro", display: "G_R_", image: "images/missing/guro.jpg", options:["guro", "goro", "gura", "giro"] }, { type: "missing", word: "mesa", display: "M_S_", image: "images/missing/mesa.jpg", options:["mesa", "misa", "masa", "mosa"] }, { type: "missing", word: "pusa", display: "P_S_", image: "images/missing/pusa.jpg", options:["pusa", "pasa", "pisa", "posa"] } ] },
-    { questions: [ { type: "missing", word: "eskwela", display: "E_KW_L_", image: "images/missing/eskwela.jpg", options:["eskwela", "eskuela", "eskwila", "eskuyla"] }, { type: "missing", word: "kaibigan", display: "K_IBIG_N", image: "images/missing/kaibigan.jpg", options:["kaibigan", "kaybigan", "kaibugan", "kaebigan"] }, { type: "missing", word: "dagat", display: "D_G_T_", image: "images/missing/dagat.jpg", options:["dagat", "dagad", "digat", "dagut"] }, { type: "missing", word: "buwan", display: "B_W_N", image: "images/missing/buwan.jpg", options:["buwan", "bawan", "buhwan", "biwan"] }, { type: "missing", word: "araw", display: "_R_W_", image: "images/missing/araw.jpg", options:["araw", "iraw", "uruw", "arah"] } ] },
-    { questions: [ { type: "missing", word: "mag-aaral", display: "M_G-A_R_L", image: "images/missing/mag-aaral.jpg", options:["mag-aaral", "magaaral", "mag-araal", "mag-aral"] }, { type: "missing", word: "kasaysayan", display: "K_S_YS_Y_N", image: "images/missing/kasaysayan.jpg", options:["kasaysayan", "kasay-sayan", "kassaysayan", "kasaysyan"] }, { type: "missing", word: "pagkakaisa", display: "P_GK_K_IS_", image: "images/missing/pagkakaisa.jpg", options:["pagkakaisa", "pagkaka-isa", "pagakaisa", "pagkkaisa"] }, { type: "missing", word: "katangian", display: "K_T_NG__N", image: "images/missing/katangian.jpg", options:["katangian", "katangyan", "katangiyan", "katanian"] }, { type: "missing", word: "punong-guro", display: "P_N_NG-G_R_", image: "images/missing/punong-guro.jpg", options:["punong-guro", "punongguro", "punong guro", "puno-guro"] } ] },
-    { questions: [ { type: "missing", word: "paaralan", display: "P__R_L_N", image: "images/missing/eskwela.jpg", options:["paaralan", "paralan", "paarlan", "parhalan"] }, { type: "missing", word: "magulang", display: "M_G_L_NG", image: "images/missing/magulang.jpg", options:["magulang", "magolang", "magulag", "maghalang"] }, { type: "missing", word: "kaalaman", display: "K_L_M_N", image: "images/missing/kaalaman.jpg", options:["kaalaman", "kaalamman", "kalaman", "kaalman"] }, { type: "missing", word: "pinagpala", display: "P_N_GP_L_", image: "images/missing/pinagpala.jpg", options:["pinagpala", "pinag-pala", "pinagpahla", "pinagpalla"] }, { type: "missing", word: "pagbabago", display: "P_GB_B_G_", image: "images/missing/pagbabago.jpg", options:["pagbabago", "pagbago", "pagbaghago", "pagbabagu"] } ] },
-    { questions: [ { type: "missing", word: "pamahalaan", display: "P_M_H_L__N", image: "images/missing/pamahalaan.jpg", options:["pamahalaan", "pamahala", "pamhalahan", "pamhalaan"] }, { type: "missing", word: "pagmamahal", display: "P_GM_M_H_L", image: "images/missing/pagmamahal.jpg", options:["pagmamahal", "pagmahal", "pagamahal", "pagmamhal"] }, { type: "missing", word: "kasalanan", display: "K_S_L_N_N", image: "images/missing/kasalanan.jpg", options:["kasalanan", "kassalanan", "kasalanann", "kasalnan"] }, { type: "missing", word: "nakakatuwa", display: "N_K_K_T_W_", image: "images/missing/nakakatuwa.jpg", options:["nakakatuwa", "nakatuwa", "nakakatwa", "nakakatuha"] }, { type: "missing", word: "pinakamahalaga", display: "P_N_K_M_H_L_G_", image: "images/missing/pinakamahalaga.jpg", options:["pinakamahalaga", "pinakamhalaga", "pinakmahalaga", "pinaka-mahalaga"] } ] },
-    { questions: [ { type: "missing", word: "kalayaan", display: "K_L_Y__N", image: "images/missing/kalayaan.jpg", options:["kalayaan", "kalaya-an", "kalayahan", "kalayan"] }, { type: "missing", word: "kapayapaan", display: "K_P_Y_P__N", image: "images/missing/kapayapaan.jpg", options:["kapayapaan", "kapaypan", "kapayapahan", "kppayapaan"] }, { type: "missing", word: "tagumpay", display: "T_G_MP_Y", image: "images/missing/tagumpay.jpg", options:["tagumpay", "tagumay", "tagunpay", "tagumpya"] }, { type: "missing", word: "pangangalaga", display: "P_NG_NG_L_G_", image: "images/missing/pangangalaga.jpg", options:["pangangalaga", "pangalaga", "panganngalaga", "panangalaga"] }, { type: "missing", word: "pagpapatuloy", display: "P_GP_PT_L_Y", image: "images/missing/pagpapatuloy.jpg", options:["pagpapatuloy", "pagpatuloy", "pagppatuloy", "pagpapatloy"] } ] },
-    { questions: [ { type: "missing", word: "pananagutan", display: "P_N_N_G_T_N", image: "images/missing/pananagutan.jpg", options:["pananagutan", "panagtutan", "pananagtan", "pananahutan"] }, { type: "missing", word: "katiyakan", display: "K_T_Y_K_N", image: "images/missing/katiyakan.jpg", options:["katiyakan", "katipakan", "katiykan", "katuyakan"] }, { type: "missing", word: "katapangan", display: "K_T_P_NG_N", image: "images/missing/katapangan.jpg", options:["katapangan", "katapngan", "katapagan", "katapahan"] }, { type: "missing", word: "pagkilos", display: "P_GK_L_S", image: "images/missing/pagkilos.jpg", options:["pagkilos", "pagkilis", "pakilos", "paghilos"] }, { type: "missing", word: "pagdarasal", display: "P_GD_R_S_L", image: "images/missing/pagdarasal.jpg", options:["pagdarasal", "pagdrasal", "padgarasal", "pagdarasl"] } ] },
-    { questions: [ { type: "missing", word: "kagalakan", display: "K_G_L_K_N", image: "images/missing/kagalakan.jpg", options:["kagalakan", "kaglakan", "kaghalakan", "kagaalakan"] }, { type: "missing", word: "pagtanggap", display: "P_GT_NGG_P", image: "images/missing/pagtanggap.jpg", options:["pagtanggap", "pagtangap", "pagtanghap", "pagtang-gap"] }, { type: "missing", word: "kaunawaan", display: "K_N_W__N", image: "images/missing/kaunawaan.jpg", options:["kaunawaan", "kaunahan", "kaunawa-an", "kaunawan"] }, { type: "missing", word: "paghihirap", display: "P_GH_H_R_P", image: "images/missing/paghihirap.jpg", options:["paghihirap", "paghirap", "paghirrap", "paghihira"] }, { type: "missing", word: "pangarap", display: "P_NG_R_P", image: "images/missing/pangarap.jpg", options:["pangarap", "pagnarap", "pangharap", "panarap"] } ] },
-    { questions: [ { type: "missing", word: "kapangyarihan", display: "K_P_NG_Y_R_H_N", image: "images/missing/kapangyarihan.jpg", options:["kapangyarihan", "kapangarihan", "kapangyarihhan", "kapangyariham"] }, { type: "missing", word: "pagmamalasakit", display: "P_GM_M_L_S_K_T", image: "images/missing/pagmamalasakit.jpg", options:["pagmamalasakit", "pagmalasakit", "pagmamalsakit", "pagmamalasakot"] }, { type: "missing", word: "katapatan", display: "K_T_P_T_N", image: "images/missing/katapatan.jpg", options:["katapatan", "kataptaan", "katapathan", "kataputan"] }, { type: "missing", word: "pagkukusa", display: "P_GK_K_S_", image: "images/missing/pagkukusa.jpg", options:["pagkukusa", "pagkusa", "pagkukuksa", "pagukusa"] }, { type: "missing", word: "bayanihan", display: "B_Y_N_H_N", image: "images/missing/bayanihan.jpg", options:["bayanihan", "bayanhian", "bayanihen", "bayanohan"] } ] },
-    { questions: [ { type: "missing", word: "pag-ibig", display: "P_G-_B_G", image: "images/missing/pag-ibig.jpg", options:["pag-ibig", "pagibig", "pag-ibog", "pag-ebig"] }, { type: "missing", word: "pagkakaibigan", display: "P_GK_K_IB_G_N", image: "images/missing/pagkakaibigan.jpg", options:["pagkakaibigan", "pagkaibigan", "pagkaka-ibigan", "pagkkaibigan"] }, { type: "missing", word: "pagtatanggol", display: "P_GT_T_NGG_L", image: "images/missing/pagtatanggol.jpg", options:["pagtatanggol", "pagtanggol", "pagtatangol", "pagtatanggul"] }, { type: "missing", word: "pakikipagkapwa", display: "P_K_K_PG_KPW_", image: "images/missing/pakikipagkapwa.jpg", options:["pakikipagkapwa", "pakikipagkapua", "pakikipagakapwa", "pakikipagkapwe"] }, { type: "missing", word: "pagmamahal", display: "P_GM_M_H_L", image: "images/missing/pagmamahal.jpg", options:["pagmamahal", "pagmahal", "pagamahal", "pagmamhal"] } ] }
-  ]}
+    { 
+      questions: [ 
+        { type: "missing", word: "book", display: "B__K", image: "images/missing/aklat.jpg", options:["book", "bouk", "bok", "boook"] }, 
+        { type: "missing", word: "house", display: "H__S_", image: "images/missing/house.jpg", options:["house", "houes", "hause", "hosue"] }, 
+        { type: "missing", word: "teacher", display: "T__CH_R", image: "images/missing/teacher.jpg", options:["teacher", "techer", "teachar", "teacehr"] }, 
+        { type: "missing", word: "table", display: "T_BL_", image: "images/missing/table.jpg", options:["table", "tabel", "tablle", "tabl"] }, 
+        { type: "missing", word: "cat", display: "C_T", image: "images/missing/cat.jpg", options:["cat", "cta", "kat", "caat"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "school", display: "S_H__L", image: "images/missing/school.jpg", options:["school", "scholl", "scool", "shcool"] }, 
+        { type: "missing", word: "friend", display: "F_I_ND", image: "images/missing/friend.jpg", options:["friend", "freind", "frend", "frind"] }, 
+        { type: "missing", word: "ocean", display: "_C__N", image: "images/missing/ocean.jpg", options:["ocean", "ocian", "osean", "oecen"] }, 
+        { type: "missing", word: "moon", display: "M__N", image: "images/missing/moon.jpg", options:["moon", "mon", "mooon", "moun"] }, 
+        { type: "missing", word: "sun", display: "S_N", image: "images/missing/sun.jpg", options:["sun", "son", "sunn", "suun"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "student", display: "S_UD_NT", image: "images/missing/student.jpg", options:["student", "studant", "sttudent", "studnet"] }, 
+        { type: "missing", word: "history", display: "H_ST_RY", image: "images/missing/history.jpg", options:["history", "histroy", "hstory", "hisstory"] }, 
+        { type: "missing", word: "unity", display: "_N_TY", image: "images/missing/unity.jpg", options:["unity", "uniti", "uunity", "unitty"] }, 
+        { type: "missing", word: "character", display: "C_A_A_T_R", image: "images/missing/character.jpg", options:["character", "charcter", "charactar", "caracter"] }, 
+        { type: "missing", word: "principal", display: "P_NC_P_L", image: "images/missing/principal.jpg", options:["principal", "prinsipal", "principel", "pricipal"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "classroom", display: "C_A_S_O_M", image: "images/missing/classroom.jpg", options:["classroom", "clasroom", "classrom", "cllassroom"] }, 
+        { type: "missing", word: "parent", display: "P_R_NT", image: "images/missing/parent.jpg", options:["parent", "parrent", "pareent", "parant"] }, 
+        { type: "missing", word: "knowledge", display: "K_O_L_D_E", image: "images/missing/knowledge.jpg", options:["knowledge", "knowlege", "knowladge", "knowldge"] }, 
+        { type: "missing", word: "blessed", display: "B_E_S_D", image: "images/missing/blessed.jpg", options:["blessed", "blesed", "blessid", "blessedd"] }, 
+        { type: "missing", word: "change", display: "C_A_G_", image: "images/missing/change.jpg", options:["change", "changge", "chnage", "chainge"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "government", display: "G_V_R_M_N_", image: "images/missing/government.jpg", options:["government", "goverment", "govarnment", "governmant"] }, 
+        { type: "missing", word: "love", display: "L_V_", image: "images/missing/love.jpg", options:["love", "luv", "loove", "lvoe"] }, 
+        { type: "missing", word: "mistake", display: "M_S_A_E", image: "images/missing/mistake.jpg", options:["mistake", "mistakke", "mistaek", "mistak"] }, 
+        { type: "missing", word: "funny", display: "F_N_Y", image: "images/missing/funny.jpg", options:["funny", "funi", "funnny", "funey"] }, 
+        { type: "missing", word: "important", display: "_M_O_T_NT", image: "images/missing/important.jpg", options:["important", "importent", "impoortant", "impotant"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "freedom", display: "F_E_D_M", image: "images/missing/freedom.jpg", options:["freedom", "freddom", "fredom", "freeedom"] }, 
+        { type: "missing", word: "peace", display: "P_A_E", image: "images/missing/peace.jpg", options:["peace", "peece", "pease", "peac"] }, 
+        { type: "missing", word: "victory", display: "V_C_O_Y", image: "images/missing/victory.jpg", options:["victory", "victori", "victtory", "viktory"] }, 
+        { type: "missing", word: "protection", display: "P_O_E_T_O_", image: "images/missing/protection.jpg", options:["protection", "protecton", "protction", "prottection"] }, 
+        { type: "missing", word: "continue", display: "C_N_I_U_", image: "images/missing/continue.jpg", options:["continue", "contnue", "continoue", "continew"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "responsibility", display: "R_S_O_S_B_L_TY", image: "images/missing/responsibility.jpg", options:["responsibility", "responsiblity", "responsibilityy", "responcibility"] }, 
+        { type: "missing", word: "certainty", display: "C_R_A_N_Y", image: "images/missing/certainty.jpg", options:["certainty", "certanty", "certainity", "sertainty"] }, 
+        { type: "missing", word: "courage", display: "C_U_A_E", image: "images/missing/courage.jpg", options:["courage", "courrage", "corage", "couraage"] }, 
+        { type: "missing", word: "action", display: "A_T_O_", image: "images/missing/action.jpg", options:["action", "acton", "acction", "aktion"] }, 
+        { type: "missing", word: "prayer", display: "P_A_E_", image: "images/missing/prayer.jpg", options:["prayer", "prayar", "pryer", "prayerr"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "joy", display: "J_Y", image: "images/missing/joy.jpg", options:["joy", "joi", "jooy", "joyy"] }, 
+        { type: "missing", word: "acceptance", display: "A_C_P_A_C_", image: "images/missing/acceptance.jpg", options:["acceptance", "acceptence", "accepptance", "acceptanse"] }, 
+        { type: "missing", word: "understanding", display: "U_D_R_T_N_I_G", image: "images/missing/understanding.jpg", options:["understanding", "understending", "understaning", "undrstanding"] }, 
+        { type: "missing", word: "suffering", display: "S_F_E_I_G", image: "images/missing/suffering.jpg", options:["suffering", "sufering", "sufferring", "sufferng"] }, 
+        { type: "missing", word: "dream", display: "D_E_M", image: "images/missing/dream.jpg", options:["dream", "dreem", "drem", "draem"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "power", display: "P_W_R", image: "images/missing/power.jpg", options:["power", "powar", "poower", "pwer"] }, 
+        { type: "missing", word: "compassion", display: "C_M_A_S_O_", image: "images/missing/compassion.jpg", options:["compassion", "compasion", "compasssion", "compashon"] }, 
+        { type: "missing", word: "honesty", display: "H_N_S_Y", image: "images/missing/honesty.jpg", options:["honesty", "honisty", "honnesty", "onesty"] }, 
+        { type: "missing", word: "initiative", display: "I_I_I_T_V_", image: "images/missing/initiative.jpg", options:["initiative", "initative", "iniitiative", "initiativ"] }, 
+        { type: "missing", word: "cooperation", display: "C_O_E_A_I_N", image: "images/missing/cooperation.jpg", options:["cooperation", "coorperation", "cooperationn", "co-operashon"] } 
+      ] 
+    },
+
+    { 
+      questions: [ 
+        { type: "missing", word: "affection", display: "A_F_C_I_N", image: "images/missing/affection.jpg", options:["affection", "afection", "affektion", "affectionn"] }, 
+        { type: "missing", word: "friendship", display: "F_I_N_S_I_", image: "images/missing/friendship.jpg", options:["friendship", "freindship", "friendsip", "frendship"] }, 
+        { type: "missing", word: "defense", display: "D_F_N_E", image: "images/missing/defense.jpg", options:["defense", "defence", "deffense", "defens"] }, 
+        { type: "missing", word: "community", display: "C_M_U_I_Y", image: "images/missing/community.jpg", options:["community", "commmunity", "comunity", "communty"] }, 
+        { type: "missing", word: "kindness", display: "K_N_N_S_", image: "images/missing/kindness.jpg", options:["kindness", "kindnes", "kyndness", "kindniss"] } 
+      ] 
+    }
+  ]
+},
 };
 
 // === SOUND EFFECTS (Web Audio API — no files needed) ===
