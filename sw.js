@@ -1,8 +1,9 @@
 // ============================
-// EDUFUSION Service Worker
+// EDUFUSION Service Worker v10
+// Full offline support
 // ============================
 
-const CACHE_VERSION = 'edufusion-v9';
+const CACHE_VERSION = 'edufusion-v10';
 
 const CORE_ASSETS = [
   './',
@@ -15,10 +16,9 @@ const CORE_ASSETS = [
   './music/bg-music.mp3',
   './logo/edu.mp4',
   './logo/edu-logo.png',
-  './logo/edu-logo.png?v=3',
+  './logo/logo.png',
   './logo/guessimg.png',
   './logo/historylogo.png',
-  './logo/edu-logo.png',
   './logo/missing.png',
   './logo/spell it.png'
 ];
@@ -48,85 +48,128 @@ const MISSING_IMAGES = [
   'pusa','tagumpay'
 ].map(n => `./images/missing/${n}.jpg`);
 
-const ALL_ASSETS = [...CORE_ASSETS, ...GUESS_IMAGES, ...MISSING_IMAGES];
-
-// ── Install: cache everything ──────────────────────────────────────────────
+// ── Install: cache everything individually so one failure doesn't abort all ──
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_VERSION).then(async cache => {
-      // Cache core assets first (must succeed)
-      await cache.addAll(CORE_ASSETS);
-      // Cache images in small batches so one failure doesn't block the rest
-      const BATCH = 10;
-      const imageAssets = [...GUESS_IMAGES, ...MISSING_IMAGES];
-      for (let i = 0; i < imageAssets.length; i += BATCH) {
-        await cache.addAll(imageAssets.slice(i, i + BATCH)).catch(() => {});
+      // Cache each core asset individually — never let one failure kill the install
+      for (const asset of CORE_ASSETS) {
+        await cache.add(asset).catch(err => {
+          console.warn('[SW] Failed to cache core asset:', asset, err);
+        });
       }
-      // Cache Google Fonts (best-effort)
+
+      // Cache game images in batches of 10
+      const allImages = [...GUESS_IMAGES, ...MISSING_IMAGES];
+      const BATCH = 10;
+      for (let i = 0; i < allImages.length; i += BATCH) {
+        await Promise.allSettled(
+          allImages.slice(i, i + BATCH).map(url =>
+            cache.add(url).catch(err => console.warn('[SW] Failed to cache image:', url, err))
+          )
+        );
+      }
+
+      // Cache Google Fonts (best-effort — not required for offline)
       await cache.add(
         'https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap'
       ).catch(() => {});
     })
   );
+  // Take over immediately without waiting for old SW clients to close
   self.skipWaiting();
 });
 
-// ── Activate: purge old caches ─────────────────────────────────────────────
+// ── Activate: purge ALL old caches ────────────────────────────────────────
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
-        keys.filter(k => k !== CACHE_VERSION).map(k => caches.delete(k))
+        keys.filter(k => k !== CACHE_VERSION).map(k => {
+          console.log('[SW] Deleting old cache:', k);
+          return caches.delete(k);
+        })
       )
-    )
+    ).then(() => self.clients.claim())
   );
-  self.clients.claim();
 });
 
-// ── Fetch: cache-first for same-origin, stale-while-revalidate for fonts ──
+// ── Fetch: serve everything from cache, fall back to network ──────────────
 self.addEventListener('fetch', event => {
+  // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
   const url = new URL(event.request.url);
 
-  // Google Fonts — stale-while-revalidate
+  // ── Google Fonts: cache-first, update in background ──
   if (url.hostname === 'fonts.googleapis.com' || url.hostname === 'fonts.gstatic.com') {
     event.respondWith(
       caches.open(CACHE_VERSION).then(async cache => {
         const cached = await cache.match(event.request);
-        const fetchPromise = fetch(event.request)
-          .then(res => { if (res.ok) cache.put(event.request, res.clone()); return res; })
-          .catch(() => null);
-        return cached || fetchPromise;
+        if (cached) return cached;
+        try {
+          const response = await fetch(event.request);
+          if (response.ok) cache.put(event.request, response.clone());
+          return response;
+        } catch {
+          // Offline and not cached — return empty so the page still loads
+          return new Response('', { status: 200, headers: { 'Content-Type': 'text/css' } });
+        }
       })
     );
     return;
   }
 
-  // Same-origin assets — cache-first, fall back to network then offline page
+  // ── Same-origin assets: cache-first ──
   if (url.origin === self.location.origin) {
     event.respondWith(
-      caches.match(event.request).then(cached => {
+      caches.open(CACHE_VERSION).then(async cache => {
+        // Try exact match first, then strip query string for versioned URLs like ?v=4
+        const cached =
+          (await cache.match(event.request)) ||
+          (await cache.match(url.pathname));
+
         if (cached) return cached;
-        return fetch(event.request).then(response => {
+
+        // Not in cache — try network and cache the result
+        try {
+          const response = await fetch(event.request);
           if (response && response.status === 200) {
-            const clone = response.clone();
-            caches.open(CACHE_VERSION).then(cache => cache.put(event.request, clone));
+            cache.put(event.request, response.clone());
           }
           return response;
-        }).catch(() => {
-          // For navigation requests, serve the app shell
+        } catch {
+          // Offline fallback
           if (event.request.mode === 'navigate') {
-            return caches.match('./index.html');
+            const shell = await cache.match('./index.html');
+            if (shell) return shell;
           }
-          return new Response('', { status: 408, statusText: 'Offline' });
-        });
+          // For images return a transparent 1x1 pixel so the game doesn't break
+          if (event.request.destination === 'image') {
+            return new Response(
+              atob('R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'),
+              { status: 200, headers: { 'Content-Type': 'image/gif' } }
+            );
+          }
+          return new Response('Offline', { status: 503, statusText: 'Service Unavailable' });
+        }
       })
     );
+    return;
   }
+
+  // ── All other origins: network with cache fallback ──
+  event.respondWith(
+    caches.match(event.request).then(cached => {
+      if (cached) return cached;
+      return fetch(event.request).catch(() =>
+        new Response('', { status: 503, statusText: 'Offline' })
+      );
+    })
+  );
 });
 
-// ── Background sync: notify clients of SW updates ─────────────────────────
+// ── Message: allow clients to trigger SW update ───────────────────────────
 self.addEventListener('message', event => {
   if (event.data === 'SKIP_WAITING') self.skipWaiting();
 });

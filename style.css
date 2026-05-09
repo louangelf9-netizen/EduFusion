@@ -8,7 +8,7 @@ EDUFUSION - Complete Styles
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
     color: white;
     min-height: 100vh;
     display: flex;
