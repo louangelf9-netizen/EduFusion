@@ -18,7 +18,7 @@ const CORE_ASSETS = [
   './logo/edu-logo.png?v=3',
   './logo/guessimg.png',
   './logo/historylogo.png',
-  './logo/logo.png',
+  './logo/edu-logo.png',
   './logo/missing.png',
   './logo/spell it.png'
 ];
