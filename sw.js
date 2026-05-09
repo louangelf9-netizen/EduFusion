@@ -2,7 +2,7 @@
 // EDUFUSION Service Worker
 // ============================
 
-const CACHE_VERSION = 'edufusion-v7';
+const CACHE_VERSION = 'edufusion-v8';
 
 const CORE_ASSETS = [
   './',
@@ -14,10 +14,11 @@ const CORE_ASSETS = [
   './manifest.json',
   './music/bg-music.mp3',
   './logo/edu.mp4',
+  './logo/edu-logo.png',
+  './logo/edu-logo.png?v=3',
   './logo/guessimg.png',
   './logo/historylogo.png',
   './logo/logo.png',
-  './logo/logo.png?v=2',
   './logo/missing.png',
   './logo/spell it.png'
 ];
